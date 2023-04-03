@@ -11,11 +11,6 @@ import postgres from "postgres";
 
 const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID } = process.env;
 const URL = `postgres://${PGUSER}:${PGPASSWORD}@${PGHOST}/${PGDATABASE}`;
-console.log("PGHOST", process.env.PGHOST);
-console.log("PGDATABASE", process.env.PGDATABASE);
-console.log("PGUSER", process.env.PGUSER);
-console.log("PGPASSWORD", process.env.PGPASSWORD);
-console.log("PGPORT", process.env.PGPORT);
 
 const sql = postgres(URL, {
   ssl: "require",
