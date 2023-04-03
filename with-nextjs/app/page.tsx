@@ -21,6 +21,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#1A1A1A]">
+      <h1>new branch</h1>
       <ul className="grid grid-cols-2 md:grid-cols-5 gap-5">
         {elements.map((element) => (
           <li
