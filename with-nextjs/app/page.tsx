@@ -1,11 +1,22 @@
-import { prisma } from '~/lib/prisma';
-
-const getElements = async () => {
-  const elements = await prisma.element.findMany();
-  return elements;
-};
+import sql from "~/lib/db";
 
 export default async function Home() {
+  // console.log("PGHOST", process.env.PGHOST);
+  // console.log("PGDATABASE", process.env.PGDATABASE);
+  // console.log("PGUSER", process.env.PGUSER);
+  // console.log("PGPASSWORD", process.env.PGPASSWORD);
+  // console.log("PGPORT", process.env.PGPORT);
+
+  async function getElements() {
+    const users = await sql`
+    select
+      *
+    from elements
+  `;
+    // users = Result [{ name: "Walter", age: 80 }, { name: 'Murray', age: 68 }, ...]
+    return users;
+  }
+
   const elements = await getElements();
 
   return (
